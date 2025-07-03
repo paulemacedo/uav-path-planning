@@ -6,18 +6,17 @@ Este projeto simula o planejamento de rotas para **drones (UAVs)** em ambientes 
 
 ## 🔧 **Funcionalidades**
 
-✅ Modelagem do ambiente 2D com obstáculos absolutos
-✅ Modelagem do ambiente 3D com alturas dos obstáculos
-✅ Geração automática dos grafos para ambos os cenários
-✅ Algoritmo de Dijkstra aplicado em 2D e 3D para encontrar o menor caminho possível
-✅ Simulação visual lado a lado do trajeto percorrido nos dois cenários
-✅ Cálculo de métricas realistas:
-
-* Distância percorrida
-* Consumo de bateria proporcional ao tempo e à altura do voo
-* Tempo estimado de voo
-  ✅ Comparação automática dos resultados entre 2D e 3D
-  ✅ Visualização intuitiva dos obstáculos e altura no ambiente 3D
+✅ Modelagem do ambiente 2D com obstáculos absolutos <br> 
+✅ Modelagem do ambiente 3D com alturas dos obstáculos <br>
+✅ Geração automática dos grafos para ambos os cenários <br>
+✅ Algoritmo de Dijkstra aplicado em 2D e 3D para encontrar o menor caminho possível <br>
+✅ Simulação visual lado a lado do trajeto percorrido nos dois cenários <br>
+✅ Cálculo de métricas realistas: <br>
+&nbsp;&nbsp;&nbsp;&nbsp;✅ Distância percorrida <br>
+&nbsp;&nbsp;&nbsp;&nbsp;✅ Consumo de bateria proporcional ao tempo e à altura do voo <br>
+&nbsp;&nbsp;&nbsp;&nbsp;✅ Tempo estimado de voo <br>
+✅ Comparação automática dos resultados entre 2D e 3D <br>
+✅ Visualização intuitiva dos obstáculos e altura no ambiente 3D <br>
 
 ---
 
