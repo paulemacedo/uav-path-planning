@@ -65,7 +65,7 @@ configuracoes = {
 1. Clone o repositório:
 
 ```bash
-git clone https://github.com/seu-usuario/uav-path-planning.git
+git clone https://github.com/paulemacedo/uav-path-planning.git
 cd uav-path-planning
 ```
 
