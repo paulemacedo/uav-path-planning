@@ -19,7 +19,7 @@ mapa_2d = np.array([
 # Mapa de alturas para o 3D (0 = livre, outros = altura do obstáculo)
 mapa_3d = np.array([
     [0, 0, 0, 0, 0],
-    [0, 7, 2, 0, 0],
+    [3, 7, 2, 0, 0],
     [0, 0, 0, 0, 0],
     [0, 0, 2, 4, 6],
     [0, 0, 0, 0, 0]
@@ -55,9 +55,7 @@ def calcular_metricas_voo(caminho, altura_drone, velocidade):
     }
     
 
-# --------------------------
 # Funções para geração dos grafos
-# --------------------------
 
 def gerar_grafo_2d(mapa):
     G = nx.Graph()
@@ -100,9 +98,7 @@ def gerar_grafo_3d(mapa, altura_drone):
                             G.add_edge((i, j), (ni, nj), weight=1)
     return G
 
-# --------------------------
 # Função de simulação
-# --------------------------
 
 def simular_voo(grafo, mapa_visual, altura_drone, titulo, ax):
     ax.set_xlim(-0.5, mapa_visual.shape[1] - 0.5)
@@ -138,7 +134,6 @@ def simular_voo(grafo, mapa_visual, altura_drone, titulo, ax):
 
     ax.set_title(titulo, fontsize=12, fontweight='bold')
 
- 
 
     # Simulação passo a passo
     for idx in range(len(caminho)-1):
@@ -148,19 +143,15 @@ def simular_voo(grafo, mapa_visual, altura_drone, titulo, ax):
         plt.pause(configuracoes['pausa_passos'])
 
 
-   # Informações no gráfico (mostrar só ao final da animação)
     linhas, colunas = mapa_visual.shape
 
-    # Garante que toda a caixa de texto fique visível
 
 
     plt.subplots_adjust(left=0.13, bottom=0.18)
 
     x_text = 0.1
-    y_text = -mapa_visual.shape[0] + 0.6  # Ajuste para ficar dentro do grid
+    y_text = -mapa_visual.shape[0] + 0.6  
 
-
-    # Exibir informações após a animação
     info_text = (
         f"Distância: {distancia_total} m\n"
         f"Bateria: {consumo_bateria:.2f} %\n"
@@ -173,10 +164,10 @@ def simular_voo(grafo, mapa_visual, altura_drone, titulo, ax):
 
     ax.text(
         x_text, y_text, info_text,
-        fontsize=9,  # Fonte menor
+        fontsize=9, 
         bbox=dict(facecolor='#f0f8ff', edgecolor="#8c46b4", boxstyle='round,pad=0.6', alpha=0.95),
-        ha='left', va='top', fontweight='bold', family='monospace',
-        wrap=True  # Quebra automática de linha (matplotlib >=3.4)
+        ha='right', va='bottom', fontweight='bold', family='monospace',
+        wrap=True 
     )
 
     return metricas
@@ -228,13 +219,10 @@ def comparar_resultados(resultado_2d, resultado_3d):
             print(f"\nA navegação 2D foi mais eficiente neste caso.")
     else:
         print("Não foi possível comparar os resultados, pois um dos cenários não possui caminho viável.")
-# --------------------------
-# Execução
-# --------------------------
 
 def main():
 
-    print("Simulação de planejamento de trajetória para UAV")
+    print("Simulação de planejamento de trajetória para drones")
     print("Algoritmo: Dijkstra | Comparação 2D vs 3D")
     print("="*60)
     
@@ -254,9 +242,8 @@ def main():
     grafo_3d = gerar_grafo_3d(mapa_3d, configuracoes['altura'])
 
     fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 6))
-    fig.suptitle("Simulação de Trajetória UAV: 2D vs 3D", fontsize=14, fontweight='bold')
+    fig.suptitle("Simulação de Trajetória drones: 2D vs 3D", fontsize=14, fontweight='bold')
 
-    # Simulação e exibição dos resultados
     resultado_2d = simular_voo(grafo_2d, mapa_2d, 0, "2D - Obstáculos Absolutos", ax1)
     resultado_3d = simular_voo(grafo_3d, mapa_3d, configuracoes['altura'], "3D - Considerando Altura", ax2)
 
